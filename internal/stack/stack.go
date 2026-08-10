@@ -12,6 +12,12 @@ const (
 	Default
 )
 
+// AllStacks returns every supported stack, so callers can operate on all of
+// them (e.g. cleanup) without needing to know which one was set up.
+func AllStacks() []Stack {
+	return []Stack{Aspire, Default}
+}
+
 func GetStackByFlags(aspire bool) Stack {
 	if aspire {
 		return Aspire
